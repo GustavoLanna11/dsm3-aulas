@@ -35,8 +35,41 @@ print(f"O resultado da multiplicação dos números é: {multiplicacao}")
 print(f"O resultado da divisão dos números é: {divisao}")
 
 #Exercício 6
+salario = float(input("Digite o salário mensal: "))
+reajuste = int(input("Digite o percentual de reajuste"))
+reajuste = salario * reajuste / 100
+salario = salario + reajuste
+print(f"O valor do salario pós reajuste é: ")
 
+#Exercício 7
+nome = str(input("Digite seu nome: "))
+idade = int(input("Digite a idade:"))
+diasVividos = idade * 365
+print(f"Seus dias vividos são: {diasVividos}")
 
+#Exercício 8
+numero1 = int(input("Digite o primeiro número: "))
+numero2 = int(input("Digite o segundo número: "))
+numero3 = int(input("Digite o terceiro número: "))
+
+soma = numero1 + numero2 + numero3
+somaQuadrado = soma * soma
+print(f"O valor da soma dos 3 exercícios ao quadrado é: {somaQuadrado}")
+
+#Exercício 9
+votosBrancos = int(input("Digite o valor de votos brancos: "))
+votosNulos = int(input("Digite o valor de votos nulos: "))
+votosValidos = int(input("Digite o valor de votos válidos: "))
+total = votosBrancos + votosNulos + votosValidos
+
+perbrancos = (votosBrancos * 100)/total
+pernulos = (votosNulos * 100)/total
+pervalidos = (votosValidos * 100)/total
+
+print(f"O percentual de votos brancos é: {perbrancos}")
+print(f"O percentual de votos nulos é: {pernulos}")
+print(f"O percentual de votos validos é: {pervalidos}")
+print(f"Total de votos é: {total}")
 
 #Exercício 10
 raio = float(input("Digite o valor do raio: "))
