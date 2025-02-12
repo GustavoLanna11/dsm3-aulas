@@ -87,3 +87,16 @@ total = qtdComprada * valorUnitario
 
 print(f"O total dos produtos é: {total}")
 print(f"A descrição do produto é: {descricao}")
+
+
+#Exercício 12
+alturaParede = float(input("Digite a altura da parede: "))
+larguraParede = float(input("Digite a largura da parede: "))
+alturaAzulejo = float(input("Digite a altura do azulejo: "))
+larguraAzulejo = float(input("Digite a largura do azulejo: "))
+
+areaParede = larguraParede * alturaParede
+areaAzulejo = larguraAzulejo * alturaAzulejo
+qtdAzulejo = areaParede - areaAzulejo
+
+print(f"A quantidade de azulejos são: {qtdAzulejo}")
