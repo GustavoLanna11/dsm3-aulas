@@ -29,3 +29,8 @@ print(f"O nome da pessoa é: {nome}")
 print(f"A idade da pessoa é: {idade}")
 
 #Exercício 5
+custoCarroFabrica = float(input("Digite o custo de fabricação original: "))
+porcentagemDistribuidor = int(input("Digite a porcentagem do distribuidor :"))
+porcentagemImpostos = int(input("Digite a porcentagem de impostos: "))
+custoTotal = (custoCarroFabrica + ((porcentagemDistribuidor/100) * custoCarroFabrica) + ((porcentagemImpostos/100)*custoCarroFabrica))
+print(f"O total pago no carro, adicionando as porcentagens de imposto e distribuidor é: {custoTotal}")
