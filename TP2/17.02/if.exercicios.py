@@ -1,4 +1,6 @@
-#Exercício 1
+#Estrutura condicional IF e Else
+
+# Exercício 1
 nome1 = str(input("Digite o nome da primeira pessoa: "))
 nome2 = str(input("Digite o nome da segunda pessoa: "))
 peso1 = float(input("Digite o peso da primeira pessoa: "))
@@ -64,3 +66,5 @@ elif valorMenu == 3:
 
 elif valorMenu == 0 or valorMenu > 3:
     print("Valor de menu inválido.")
+
+
