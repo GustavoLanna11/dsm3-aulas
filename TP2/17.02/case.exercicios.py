@@ -79,3 +79,4 @@ match pagamento:
         print(f"O desconto é de: {desconto}")
         print(f"O preço com desconto é: {precoFinal}")
     
+    # Falta o exercício 5 e 6, estão no slide da aula!
