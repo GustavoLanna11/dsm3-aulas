@@ -1,4 +1,3 @@
-
 #Exercício 1
 num = 0
 while num <= 100:
@@ -62,3 +61,27 @@ while resposta1 == "a" and resposta2 != "c" or resposta3 != "d" and resposta1 ==
     print("Você possui 2 pontos")
     break
 
+#Exercício 6
+valor = 1.99
+print("Lojas quase dois = tabela de preços")
+for i in range (1, 51):
+    print(f"{i} - R$ {(valor * i):.2f}")
+
+#Exercício 7
+valor = 0.54
+print("Pão de ontem - Tabela de preços")
+for i in range (2, 51, 2):
+    print(f"{i} - R$ {(valor * i):.2f}")
+
+#Exercício 8
+print("Lojas luiz")
+produto = 1
+total = 0
+i = 1
+while produto != 0:
+    produto = int(input(f"Produto {i}: "))
+    total += produto
+    i += 1
+    print(total)
+
+#Exercício 10
