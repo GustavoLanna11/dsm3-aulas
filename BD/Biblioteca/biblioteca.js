@@ -4,7 +4,7 @@ const {MongoClient} = require('mongodb');
 // Função principal
 async function main() {
     // Definir a URI de conexão com o MongoDB
-    const uri = "mongodb://localhost:27017";
+    const uri = "mongodb://127.0.0.1:27017";
     // Criar instância do cliente mongo
     const client = new MongoClient(uri);
 
@@ -27,3 +27,6 @@ async function main() {
 }
 // Chama a função principal e captura o erro, se houver
 main().catch(console.error);
+
+//node biblioteca.js para executar as tabelas
+// mongosh - show dbs - use biblioteca-aulas - db.livros.find() z
