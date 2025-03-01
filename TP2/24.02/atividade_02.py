@@ -51,8 +51,10 @@ num1 = int(input("Digite o primeiro número: "))
 num2 = int(input("Digite o segundo número: "))
 if num1 > num2:
     subtracao = num1 - num2
+    print(f"A subtração do maior pelo menor número é: {subtracao}")
 elif num2 > num1:
     subtracao = num2 - num1
+    print(f"A subtração do maior pelo menor número é: {subtracao}")
 elif num1 == num2:
     print("Números iguais! ")
 
@@ -69,16 +71,31 @@ elif altura2 > altura1:
 elif altura1 == altura2:
     print(f"{nome1} e {nome2} possuem a mesma altura: {altura1}")
 
+
 #Exercício 6
 valorProd = float(input("Digite o valor de compra do produto: "))
 if valorProd <= 20.00:
     print("Você teve 45% de lucro!")
     lucro = valorProd * 0.45
-    print(f"Valor de venda: {lucro}")
+    venda = lucro + valorProd
+    print(f"Valor de venda: {venda}")
 elif valorProd > 20.00:
     print("Você teve 30% de lucro!")
     lucro = valorProd * 0.30
-    print(f"Valor de venda: {lucro}")
+    venda = lucro + valorProd
+    print(f"Valor de venda: {venda}")
 
-#Exercício 7
-nome = str(input("Digite o "))
+#Exercício 7 
+nome = str(input("Digite o nome do cleinte: "))
+deposito = float(input("Digite o valor do depósito: "))
+
+saldoAtual = 800 + deposito
+if saldoAtual == 0:
+    print(f"Nome do cliente: {nome}, seu saldo: {saldoAtual}")
+    print("Saldo limite!")
+elif saldoAtual > 0:
+    print(f"Nome do cliente: {nome}, seu saldo: {saldoAtual}")
+    print("Saldo Positivo!")
+elif saldoAtual < 0:
+    print(f"Nome do cliente: {nome}, seu saldo: {saldoAtual}")
+    print("Saldo Negativo!")
