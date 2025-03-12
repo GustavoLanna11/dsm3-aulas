@@ -21,6 +21,7 @@ for i in range(4):
     print(matriz[i])
 
 #Exercício 3
+#Igual ao 2 só que com valores diferentes
 
 #Exercício 4
 vetor_cor = []

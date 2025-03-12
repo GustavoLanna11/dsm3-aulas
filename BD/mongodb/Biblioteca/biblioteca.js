@@ -15,12 +15,27 @@ async function main() {
         const database = client.db('biblioteca-aula');
         // Selecionar a coleção "livros"
         const livros = database.collection('livros');
+
+        /*
         //Inserindo informações no banco
         await livros.insertMany([
             {titulo:"1984", autor:"Geoge Owen", ano:1949, genero:"Distopia"},
             {titulo:"Dom Casmurro", autor:"Machado de Assis", ano:1899, genero:"Romance"},
             {titulo:"Senhor dos Aneis", autor:"J.R.R. Tolkei", ano:1954, genero:"Fantasia"},
-        ]);
+        ]);*/
+
+        /*
+        //Consultar todos os documentos
+        const todosLivros = await livros.find().toArray();
+        console.log('Livros:', todosLivros);
+        */
+
+        //Atualizar um documento
+        await livros.updateOne(
+            {titulo:"1984"}, //Filtro para encontrar registro
+            {$set: {ano:1950}} //Valor atualizado para o campo em específico
+        );
+
     }finally{
         await client.close();
     }
@@ -29,4 +44,4 @@ async function main() {
 main().catch(console.error);
 
 //node biblioteca.js para executar as tabelas
-// mongosh - show dbs - use biblioteca-aulas - db.livros.find() z
+// mongosh - show dbs - use biblioteca-aulas - db.livros.find() 
