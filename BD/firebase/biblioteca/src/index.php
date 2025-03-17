@@ -1,5 +1,5 @@
 <?php
-    require_once 'vendor/autoload.php';
+    /*require_once 'vendor/autoload.php';
 
     use Kreait\Firebase\Factory;
     class FirebaseCRUD{
@@ -37,6 +37,6 @@
         public function delete($id){
             $ref = $this->database->getReference('livros/' .$id);
             $ref->remove();
-        }
+        }*/
 ?>
 
