@@ -1,5 +1,5 @@
 <?php
-    require_once __DIR__.'/vendor/autoload.php';
+    require_once 'C:\xampp\htdocs\firebase\vendor/autoload.php';
     use Kreait\Firebase\Factory;
 
     class FirebaseCRUD{
@@ -7,8 +7,8 @@
 
         public function __construct(){
             $firebase=(new Factory)
-            ->withServiceAccount(__DIR__.'/chave-privada-firebase-biblioteca.json')
-
+            ->withServiceAccount(__DIR__.'/assets/config/chave-privada-firebase-biblioteca.json')
+            
             //URL diretamente do firebase 
             ->withDataBaseUri('https://biblioteca-dsm3-858cb-default-rtdb.firebaseio.com/')
             ->createDataBase();
@@ -21,6 +21,7 @@
         public function create($livro){
             $ref = $this->database->getReference('livros');
             $ref->push($livro);
+            echo "ok";
         }
 
         //Consultar todos os documentos(Read)
@@ -41,5 +42,15 @@
             $ref->remove();
         }
     }
+
+    $firebaseCrud = new FireBaseCRUD();
+
+    //Inserir dado
+    $firebaseCrud->create([
+        'titulo'=>'1984',
+        'autor'=>'George orwell',
+        'ano'=>1949,
+        'genero' => 'Distopia'
+    ]);
 ?>
 
