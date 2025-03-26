@@ -16,25 +16,32 @@ async function main() {
         // Selecionar a coleção "livros"
         const livros = database.collection('livros');
 
-        /*
+        
         //Inserindo informações no banco
         await livros.insertMany([
             {titulo:"1984", autor:"Geoge Owen", ano:1949, genero:"Distopia"},
             {titulo:"Dom Casmurro", autor:"Machado de Assis", ano:1899, genero:"Romance"},
             {titulo:"Senhor dos Aneis", autor:"J.R.R. Tolkei", ano:1954, genero:"Fantasia"},
-        ]);*/
+        ]);
 
-        /*
+        
         //Consultar todos os documentos
         const todosLivros = await livros.find().toArray();
         console.log('Livros:', todosLivros);
-        */
+        
 
         //Atualizar um documento
         await livros.updateOne(
             {titulo:"1984"}, //Filtro para encontrar registro
             {$set: {ano:1950}} //Valor atualizado para o campo em específico
         );
+
+        //Excluir um documento
+        await livros.deleteOne({ titulo: "Dom Casmurro" });
+
+        //Consultar todos os documentos da coleção "livros" após alterações
+        const updatedLivros = await livros.find().toArray();
+        console.log('Livros Atualizados:', updatedLivros);
 
     }finally{
         await client.close();
