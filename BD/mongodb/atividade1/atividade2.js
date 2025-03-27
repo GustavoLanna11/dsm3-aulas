@@ -19,12 +19,14 @@ async function main(){
         const tripulantes = database.collection('tripulantes');
 
         //2 - inserindo as informações no nosso banco
-        await naves.insertMany([
+       const navesInseridas =  await naves.insertMany([
             {nome: "Estrela Cadente", tipo: "Exploração", capacidadetripulantes: 20, emMissao: true },
             {nome: "Colossus", tipo: "Carga", capacidadetripulantes: 40, emMissao: false },
             {nome: "Anakin", tipo: "Combate", capacidadetripulantes: 5, emMissao: true },
             {nome: "Skywalker", tipo: "Combate", capacidadetripulantes: 2, emMissao: true },
         ])
+
+        const idNaves = navesInseridas.insertedIds;
 
         //3 - Consultando naves que estão em missão
         const navesMissao = await naves.find({emMissao:true}).toArray();
@@ -49,11 +51,13 @@ async function main(){
 
         //6 - adicionando uma coleção de tripulantes associando as naves 
         await tripulantes.insertMany([
-            {nome: "Gustavo", funcao: "Guerreiro", patente: "Capitão", naveId: navesAnakin._id},
-            {nome: "Isabele", funcao: "Suporte", patente: "Sub-comandante", naveId: naveEstrelaCadente._id},
-            {nome: "Chamas", funcao: "Explorador", patente: "Capitão", naveId: naveEstrelaCadente._id},
-            {nome: "Isa", funcao: "Asssassina", patente: "Elite", naveId: naveSkywalker._id},
+            {nome: "Gustavo", funcao: "Guerreiro", patente: "Capitão", idNave: idNaves['1']},
+            {nome: "Isabele", funcao: "Suporte", patente: "Sub-comandante", idNave: idNaves['2']},
+            {nome: "Chamas", funcao: "Explorador", patente: "Capitão", idNave: idNaves['3']},
+            {nome: "Isa", funcao: "Asssassina", patente: "Elite", idNave: idNaves['1']},
         ])
+
+         console.log("Tripulantes inseridos com sucesso.");
 
     } finally{
         await client.close();
