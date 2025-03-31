@@ -7,7 +7,7 @@ async function main(){
     const uri = "mongodb://127.0.0.1:27017";
     //criando instância do cliente
     const client = new MongoClient(uri);
-
+    
     try {
         //Conectando com o servidor 
         await client.connect();
