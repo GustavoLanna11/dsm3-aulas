@@ -13,7 +13,7 @@ largura, altura = imagem_pil.size
 if largura > 150:
     proporcao = largura / 150
     nova_altura = int(altura / proporcao)
-    imagem_pill = imagem_pil.resize((110, nova_altura))
+    imagem_pil = imagem_pil.resize((110, nova_altura))
 
 imagem_tk = ImageTk.PhotoImage(imagem_pil)
 lbl_imagem = Label(tela, image=imagem_tk)
