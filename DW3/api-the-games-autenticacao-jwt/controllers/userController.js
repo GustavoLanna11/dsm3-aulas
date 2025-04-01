@@ -58,4 +58,4 @@ const loginUser = async (req, res) => {
   }
 };
 
-export default { createUser, loginUser };
+export default { createUser, loginUser, JWTSecret };

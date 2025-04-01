@@ -1,7 +1,7 @@
 import express from "express";
 const gameRoutes = express.Router();
 import gameController from "../controllers/gameController.js";
-//Importando o middleware de autenticação
+// Importando o middleware de autenticação
 import Auth from '../middleware/Auth.js'
 
 // Endpoint para listar todos os games (rota)
