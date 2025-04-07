@@ -34,12 +34,12 @@ txt_idade = Entry(tela, width=20, borderwidth=2, fg="black", bg="white")
 txt_idade.place(x=190, y=200)
 txt_idade.insert(0, "")
 
-lbl_end = Label(tela, text="Rua:", bg="#ffffff").place(x=450, y=500)
+lbl_end = Label(tela, text="Rua:", bg="#ffffff").place(x=450, y=200)
 txt_end = Entry (tela, width=25, borderwidth=2, fg="black", bg="white")
 txt_end.place(x=480, y=200)
 txt_end.insert(0, "")
 
-lbl_bairro = Label(tela, text="Bairro:", bg="#ffffff").place(x=450, y=500)
+lbl_bairro = Label(tela, text="Bairro:", bg="#ffffff").place(x=130, y=230)
 txt_bairro = Entry (tela, width=25, borderwidth=2, fg="black", bg="white")
 txt_bairro.place(x=190, y=230)
 txt_bairro.insert(0, "")
@@ -83,4 +83,28 @@ def salvar():
     cliente = {"código":codigo, "nome": nome, "idade": idade, "endereço": end, "cpf": cpf, "bairro":bairro, "cidade":cidade, "estado":estado}
     collection.insert_one(cliente)
 
-mainloop()
+
+def atualizar():
+    codigo = txt_codigo.get()
+    nome = txt_nome.get()
+    idade = int(txt_idade.get())
+
+    end = txt_end.get()
+    cpf = txt_cpf.get()
+
+    bairro = txt_bairro.get()
+    cidade = txt_cidade.get()
+    estado = comboestado.get()
+
+    collection.update_one({"código":codigo}, {"$set": {"código": codigo, "nome": nome, "idade": idade, "endereço": end, "cpf": cpf, "bairro": bairro, "cidade": cidade, "estado": estado}})
+
+def apagar():
+    codigo = txt_codigo.get()
+    collection.delete_one({"código": codigo})
+
+btn_salvar = Button(tela, text="Salvar", width=10, command=salvar).place(x=130, y=280)
+btn_alterar = Button(tela, text="Alterar", width=10, command=atualizar).place(x=220, y=280)
+btn_excluir = Button(tela, text="Excluir", width=10, command=apagar).place(x=310, y=280)
+btn_sair = Button(tela, text="Sair", width=10, command=tela.quit).place(x=400, y=280)
+
+tela.mainloop()
