@@ -9,7 +9,7 @@ tela = Tk()
 tela.title("Exemplo Mongo DB")
 tela.geometry("800x600")
 tela.resizable(True, True)
-tela.configure(background="#fffff")
+tela.configure(background="#ffffff")
 
 exemplo = pymongo.MongoClient("mongodb://localhost:27017/")
 db = exemplo["exemplo"]
@@ -43,3 +43,44 @@ lbl_bairro = Label(tela, text="Bairro:", bg="#ffffff").place(x=450, y=500)
 txt_bairro = Entry (tela, width=25, borderwidth=2, fg="black", bg="white")
 txt_bairro.place(x=190, y=230)
 txt_bairro.insert(0, "")
+
+lbl_estado = Label(tela, text="Estado:", bg="#ffffff").place(x=330, y=230)
+comboestado = ttk.Combobox(tela,
+                           values=[
+                               "São Paulo",
+                               "Rio de Janeiro",
+                               "Minas Gerais",
+                               "Espírito Santo"],)
+comboestado.grid(column=0, row=1)
+comboestado.place(x=370, y=230)
+
+lbl_cidade = Label(tela, text="Cidade:", bg="#ffffff").place(x=520, y=230)
+txt_cidade = Entry(tela, width=20, borderwidth=2, fg="black", bg="white")
+txt_cidade.place(x=570, y=230)
+txt_cidade.insert(0, "")
+
+def salvar():
+    codigo = txt_codigo.get()
+    nome = txt_nome.get()
+    idade = int(txt_idade.get())
+    end = txt_end.get()
+    cpf = txt_cpf.get()
+
+    bairro = txt_bairro.get()
+    cidade = txt_cidade.get()
+    estado = comboestado.get()
+
+    txt_codigo.delete(0, tk.END)
+    txt_nome.delete(0, tk.END)
+    txt_idade.delete(0, tk.END)
+
+    txt_end.delete(0, tk.END)
+    txt_bairro.delete(0, tk.END)
+    txt_cidade.delete(0, tk.END)
+    comboestado.set("")
+    txt_cpf.delete(0, tk.END)
+
+    cliente = {"código":codigo, "nome": nome, "idade": idade, "endereço": end, "cpf": cpf, "bairro":bairro, "cidade":cidade, "estado":estado}
+    collection.insert_one(cliente)
+
+mainloop()
