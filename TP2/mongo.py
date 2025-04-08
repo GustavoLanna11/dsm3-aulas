@@ -107,13 +107,23 @@ def consultar():
     resultado = collection.find_one({"código": codigo})
 
     if resultado:
-        txt_nome.insert(END, f" {resultado['nome']}/n")
-        txt_idade.insert(END, f" {resultado['idade']}/n")
-        txt_end.insert(END, f" {resultado['endereço']}/n")
-        txt_cpf.insert(END, f" {resultado['cpf']}/n")
-        txt_bairro.insert(END, f" {resultado['bairro']}/n")
-        txt_cidade.insert(END, f" {resultado['cidade']}/n")
-        comboestado.insert(END, f" {resultado['estado']}/n")
+        txt_codigo.delete(0, tk.END)
+        txt_nome.delete(0, tk.END)
+        txt_idade.delete(0, tk.END)
+
+        txt_end.delete(0, tk.END)
+        txt_bairro.delete(0, tk.END)
+        txt_cidade.delete(0, tk.END)
+        comboestado.set("")
+        txt_cpf.delete(0, tk.END)
+        
+        txt_nome.insert(END, f" {resultado['nome']}")
+        txt_idade.insert(END, f" {resultado['idade']}")
+        txt_end.insert(END, f" {resultado['endereço']}")
+        txt_cpf.insert(END, f" {resultado['cpf']}")
+        txt_bairro.insert(END, f" {resultado['bairro']}")
+        txt_cidade.insert(END, f" {resultado['cidade']}")
+        comboestado.insert(END, f" {resultado['estado']}")
     else:
         lbl_resultado.config(text="Nenhum resultado encontrado")
 
@@ -124,5 +134,6 @@ btn_salvar = Button(tela, text="Salvar", width=10, command=salvar).place(x=130, 
 btn_alterar = Button(tela, text="Alterar", width=10, command=atualizar).place(x=220, y=280)
 btn_excluir = Button(tela, text="Excluir", width=10, command=apagar).place(x=310, y=280)
 btn_sair = Button(tela, text="Sair", width=10, command=tela.quit).place(x=400, y=280)
+btn_consultar = Button(tela, text="Consultar", width=10, command=consultar).place(x=500, y=280)
 
 tela.mainloop()
