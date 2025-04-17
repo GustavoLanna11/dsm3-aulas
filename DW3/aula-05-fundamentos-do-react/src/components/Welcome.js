@@ -1,8 +1,11 @@
-// Comentários em JS
+// Comentário em JS
+/* Comentário em 
+bloco */
 
-// Componente Funcional
+// Componente funcional
+
 const Welcome = () => {
-    return <h1>Meu primeiro componente 👿</h1>
+  return <h1>Esse é meu primeiro componente...</h1>;
 };
 
 export default Welcome;

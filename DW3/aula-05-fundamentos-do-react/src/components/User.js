@@ -1,13 +1,14 @@
 const User = () => {
-    //Local para por as variáveis 
-    const name = "gusta";
-return (
+  // Criando variáveis
+  const name = "Diego";
+  return (
     <>
-    <div>
+      <div>
         {/* Expressão JSX */}
-        <p>Bem vindo, {name}!</p>
-    </div>
+        <p>Bem-vindo, {name}!</p>
+      </div>
     </>
-)};
+  );
+};
 
 export default User;

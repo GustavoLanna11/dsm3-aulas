@@ -1,13 +1,12 @@
 const Child = () => {
-    return (
-        <>
-            <div>
-                <p>
-                    <em>este é o componente filho...</em>
-                </p>
-            </div>
-        </>
-    );
+  return (
+    <>
+      <div>
+        <p>
+          <em>Este é o componente filho...</em>
+        </p>
+      </div>
+    </>
+  );
 };
-
 export default Child;
