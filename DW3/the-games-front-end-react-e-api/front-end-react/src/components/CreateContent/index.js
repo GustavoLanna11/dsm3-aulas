@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 import styles from "@/components/CreateContent/CreateContent.module.css";
 import axios from "axios";
 
@@ -10,39 +11,40 @@ const CreateContent = () => {
   const [rating, setRating] = useState("");
   const [year, setYear] = useState("");
   const [price, setPrice] = useState("");
+  // Carregando o router
+  const router = useRouter();
 
   // Tratando a submissão do formulário
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Validação de formulário
-    if(title && platform && genre && rating && year && price !== ""){
+    // VALIDAÇÃO DO FORMULÁRIO (CAMPOS VAZIOS)
+    if (title && platform && genre && rating && year && price !== "") {
       const game = {
         title: title,
         year: year,
         price: price,
-        descriptions:{
+        descriptions: {
           platform: platform,
           genre: genre,
           rating: rating,
         },
       };
-      //Fazendo Post na API para cadastro
-
-      try{
+      // FAZENDO POST NA API PARA CADASTRO
+      try {
         const response = await axios.post("http://localhost:4000/games", game);
-        if(response.status === 201){
-          alert ("Game cadastrado com sucesso!")
+        if (response.status === 201) {
+          alert("Game cadastrado com sucesso!");
+          router.push("/home");
         }
-      } catch(error){
+      } catch (error) {
         console.log(error);
       }
-
       // console.log(game)
     } else {
-      alert("Por favor, preencha todos os campos!")
+      alert("Por favor, preencha todos os campos.");
     }
-  }
+  };
 
   return (
     <div className={styles.createContent}>
