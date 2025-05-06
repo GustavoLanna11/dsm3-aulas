@@ -106,8 +106,10 @@ const HomeContent = () => {
             ))}
           </div>
         </div>
-        {/* Renderização Condicional */}
-        {selectedGame && <EditContent onClose={closeEditModal} />}
+        {/* Renderização condicional */}
+        {selectedGame && (
+          <EditContent game={selectedGame} onClose={closeEditModal} />
+        )}
       </div>
     </>
   );
